@@ -31,7 +31,6 @@ const Address = (props) => {
     return (
         <div>
             <div>
-                <p>id: {id}</p>
                 <p>{partnering_end}</p>
             </div>
 
