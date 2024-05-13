@@ -28,7 +28,7 @@ const AddressCreateForm = () => {
 
         try {
             const { data } = await axiosReq.post("/address_book/ ", formData);
-            history.push(`/address_book/detail/${data.id}`);
+            history.push(`/address/detail/${data.id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {

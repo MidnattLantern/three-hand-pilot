@@ -39,7 +39,7 @@ const PilotPostList = () => {
                     </div>
                 ))}
                 dataLength={pilotPostList.results.length}
-                loader={<p>laoding...</p>}
+                loader={<p>loading...</p>}
                 hasMore={!!pilotPostList.next}
                 next={() => fetchMoreData(pilotPostList, setPilotPostList)}
                 />
