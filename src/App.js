@@ -15,6 +15,7 @@ import PilotPostDetail from "./pages/pilotpost/PilotPostDetail";
 import PilotPostEditForm from "./pages/pilotpost/PilotPostEditForm";
 
 import AddressCreateForm from "./pages/address_book/AddressCreateForm";
+import AddressDetail from "./pages/address_book/AddressDetail";
 
 function App() {
 
@@ -34,7 +35,8 @@ function App() {
             <Route exact path="/pilot_post/detail/:id" render={() => <PilotPostDetail />} />
             <Route exact path="/pilot_post/edit/:id" render={() => <PilotPostEditForm />} />
 
-            <Route exact path="/address_book/create" render={() => <AddressCreateForm />} />
+            <Route exact path="/address/create" render={() => <AddressCreateForm />} />
+            <Route exact path="/address/detail/:id" render={() => <AddressDetail />} />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />
