@@ -20,7 +20,6 @@ const NavBar = () => {
         <Nav>
             <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"><i className="fas fa-home" /> Home</NavLink>
             <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/pilot_post/list">P-Post list</NavLink>
-            <a className={styles.NavBarButton} href="https://flynarc-api-824d94b4a80f.herokuapp.com/" target="blank">API</a>
             {currentAuthentication ? authenticatedOptions : nonAuthenticatedOptions}
         </Nav>
         </> )
