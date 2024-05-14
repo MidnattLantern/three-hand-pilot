@@ -9,6 +9,7 @@ const HomePage = () => {
         <div>
             <h1>Home page</h1>
             <p>Authenticated as: {currentAuthentication?.username}</p>
+            <p>ID: {currentAuthentication?.user_authentication_id}</p>
         </div>
     )
 };

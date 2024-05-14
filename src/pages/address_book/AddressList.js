@@ -3,9 +3,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Address from "./Address";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const AddressList = () => {
+    const { id } = useParams();
     const [addressList, setAddressList] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const {pathname} = useLocation();
@@ -13,7 +14,7 @@ const AddressList = () => {
     useEffect(() => {
         const fetchAddressList = async () => {
             try {
-                const { data } = await axiosReq.get(`/address_book/`);
+                const { data } = await axiosReq.get(`/address_book/?owner__userauthentication=${id}`);
                 setAddressList(data);
                 setHasLoaded(true);
             } catch(err){
@@ -25,6 +26,7 @@ const AddressList = () => {
 
     return (
         <div>
+            <p>id: {id}</p>
             {hasLoaded ? (<>
 
                 <p>found: {addressList.results.length}</p>
