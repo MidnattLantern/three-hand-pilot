@@ -6,7 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const AddressList = () => {
-    const { id } = useParams();
+    const { address_id, user_id, } = useParams();
     const [addressList, setAddressList] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const {pathname} = useLocation();
@@ -14,7 +14,7 @@ const AddressList = () => {
     useEffect(() => {
         const fetchAddressList = async () => {
             try {
-                const { data } = await axiosReq.get(`/address_book/?owner__userauthentication=${id}`);
+                const { data } = await axiosReq.get(`/address_book/?owner__userauthentication=${user_id}`);
                 setAddressList(data);
                 setHasLoaded(true);
             } catch(err){
@@ -26,7 +26,7 @@ const AddressList = () => {
 
     return (
         <div>
-            <p>id: {id}</p>
+            <p>user_id: {user_id}</p>
             {hasLoaded ? (<>
 
                 <p>found: {addressList.results.length}</p>
@@ -34,7 +34,7 @@ const AddressList = () => {
                     <InfiniteScroll
                     children={addressList.results.map((address) => (
                         <div>
-                            <Address key={address.id} {...address} setAddressList={setAddressList} />
+                            <Address key={address.address_id} {...address} setAddressList={setAddressList} />
                         </div>
                     ))}
                     dataLength={addressList.results.length}

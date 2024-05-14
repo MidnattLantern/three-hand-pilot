@@ -4,14 +4,14 @@ import Address from "./Address";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const AddressDetail = () => {
-    const { id } = useParams();
+    const { address_id } = useParams();
     const [addressDetail, setAddressDetail] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
             try {
                 const [{ data: address }] = await Promise.all([
-                    axiosReq.get(`/address_book/${id}`)
+                    axiosReq.get(`/address_book/${address_id}`)
                 ]);
                 setAddressDetail({ results: [address]})
             } catch(err) {
@@ -19,7 +19,7 @@ const AddressDetail = () => {
             }
         };
         handleMount();
-    }, [id]);
+    }, [address_id]);
 
     return(
         <div>

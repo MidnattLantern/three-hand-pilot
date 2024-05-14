@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
 import axios from "axios";
 
@@ -11,12 +12,13 @@ const AddressEditForm = () => {
     });
     const { partnering_end, } = addressData;
     const history = useHistory();
-    const { id } = useParams();
+    const { address_id } = useParams();
+    const currentAuthentication = useCurrentAuthentication();
 
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const { data } = await axios.get(`/address_book/${id}`);
+                const { data } = await axios.get(`/address_book/${address_id}`);
                 const { partnering_end, is_owner, } = data
                 is_owner ? setAddressData({ partnering_end }) : history.push("/");
             } catch(err) {
@@ -24,7 +26,7 @@ const AddressEditForm = () => {
             }
         }
         handleMount();
-    }, [history, id]);
+    }, [history, address_id]);
 
     const handleChange = (event) => {
         setAddressData({
@@ -41,8 +43,8 @@ const AddressEditForm = () => {
         formData.append("partnering_end", partnering_end);
 
         try {
-            const { data } = await axiosReq.put(`/address_book/${id}`, formData);
-            history.push(`/address/detail/${data.id}`);
+            const { data } = await axiosReq.put(`/address_book/${address_id}`, formData);
+            history.push(`/address/${currentAuthentication?.user_authentication_id}/detail/${address_id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {

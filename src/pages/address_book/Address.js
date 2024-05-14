@@ -16,7 +16,7 @@ const Address = (props) => {
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/address/edit/${id}`);
+        history.push(`/address/${currentAuthentication?.user_authentication_id}/edit/${id}`);
     };
 
     const handleDelete = async () => {
@@ -40,7 +40,7 @@ const Address = (props) => {
                     <button onClick={handleDelete}>Delete</button>
                 </div>
             </>) : (<>
-                <Link to={`/address/detail/${id}`}>
+                <Link to={`/address/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
                     Details <i className="fa-solid fa-arrow-right"/>
                 </Link>
             </>)}

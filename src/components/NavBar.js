@@ -20,7 +20,7 @@ const NavBar = () => {
         <Nav>
             <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"><i className="fas fa-home" /> Home</NavLink>
             <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/pilot_post/list">P-Post list</NavLink>
-            <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to={`/address/list/${currentAuthentication?.user_authentication_id}`}>Address</NavLink>
+            <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to={`/address/${currentAuthentication?.user_authentication_id}/_/_`}>Address</NavLink>
             {currentAuthentication ? authenticatedOptions : nonAuthenticatedOptions}
         </Nav>
         </> )

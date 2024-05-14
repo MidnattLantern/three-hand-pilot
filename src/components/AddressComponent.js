@@ -17,7 +17,7 @@ const AddressComponent = () => {
             <AddressCreateForm/>
             </>) : (<></>)}
 
-            {action === "list" ? (<>
+            {action === "_" ? (<>
             <h1>List view</h1>
             <AddressList/>
             </>) : (<></>)}

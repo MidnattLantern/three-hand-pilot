@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
 
 const AddressCreateForm = () => {
@@ -9,8 +10,8 @@ const AddressCreateForm = () => {
         partnering_end: "",
     });
     const { partnering_end, } = addressData;
-
     const history = useHistory();
+    const currentAuthentication = useCurrentAuthentication();
 
     const handleChange = (event) => {
         setAddressData({
@@ -28,7 +29,7 @@ const AddressCreateForm = () => {
 
         try {
             const { data } = await axiosReq.post("/address_book/ ", formData);
-            history.push(`/address/detail/${data.id}`);
+            history.push(`/address/${currentAuthentication?.user_authentication_id}/list/_`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {

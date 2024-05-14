@@ -34,7 +34,7 @@ function App() {
             <Route exact path="/pilot_post/detail/:id" render={() => <PilotPostDetail />} />
             <Route exact path="/pilot_post/edit/:id" render={() => <PilotPostEditForm />} />
 
-            <Route exact path="/address/:action/:id" render={() => <AddressComponent />} />
+            <Route exact path="/address/:user_id/:action/:address_id" render={() => <AddressComponent />} />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />
