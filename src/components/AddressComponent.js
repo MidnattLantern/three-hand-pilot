@@ -2,6 +2,7 @@ import React from "react";
 import AddressCreateForm from "../pages/address_book/AddressCreateForm";
 import AddressList from "../pages/address_book/AddressList";
 import AddressDetail from "../pages/address_book/AddressDetail";
+import AddressEditForm from "../pages/address_book/AddressEditForm";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const AddressComponent = () => {
@@ -24,6 +25,11 @@ const AddressComponent = () => {
             {action === "detail" ? (<>
             <h1>Detail view</h1>
             <AddressDetail/>
+            </>) : (<></>)}
+
+            {action === "edit" ? (<>
+            <h1>Detail view</h1>
+            <AddressEditForm/>
             </>) : (<></>)}
 
         </div>
