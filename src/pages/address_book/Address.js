@@ -22,7 +22,7 @@ const Address = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/address_book/${id}`);
-            history.push('/');
+            history.push(`/address/${currentAuthentication?.user_authentication_id}/_/_`);
         } catch(err) {
             console.log(err);
         }

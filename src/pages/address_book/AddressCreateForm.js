@@ -28,8 +28,8 @@ const AddressCreateForm = () => {
         formData.append("partnering_end", partnering_end);
 
         try {
-            const { data } = await axiosReq.post("/address_book/ ", formData);
-            history.push(`/address/${currentAuthentication?.user_authentication_id}/list/_`);
+            await axiosReq.post("/address_book/ ", formData);
+            history.push(`/address/${currentAuthentication?.user_authentication_id}/_/_`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -40,7 +40,6 @@ const AddressCreateForm = () => {
 
     return(
         <div>
-            <h1>Address create form</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Control

@@ -28,8 +28,6 @@ const AddressList = () => {
         <div>
             <p>user_id: {user_id}</p>
             {hasLoaded ? (<>
-
-                <p>found: {addressList.results.length}</p>
                 {addressList.results.length ? (<>
                     <InfiniteScroll
                     children={addressList.results.map((address) => (

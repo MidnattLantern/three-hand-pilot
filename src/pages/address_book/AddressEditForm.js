@@ -55,7 +55,6 @@ const AddressEditForm = () => {
 
     return(
         <div>
-            <h1>Address edit form</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Control
