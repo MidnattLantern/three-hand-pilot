@@ -23,21 +23,19 @@ const AddressComponent = () => {
             <div className="col-md-6">
                 <div className={styles.Island}>
                     {action === "create" ? (<>
-                    <h1>Address create form</h1>
+                    <h1>Create new address</h1>
                     <AddressCreateForm/>
                     </>) : (<></>)}
 
                     {action === "_" ? (<>
-                    <h1>none selected</h1>
+
                     </>) : (<></>)}
 
                     {action === "detail" ? (<>
-                    <h1>Address detail</h1>
                     <AddressDetail/>
                     </>) : (<></>)}
 
                     {action === "edit" ? (<>
-                    <h1>Address edit form</h1>
                     <AddressEditForm/>
                     </>) : (<></>)}
                 </div>

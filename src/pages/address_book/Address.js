@@ -43,20 +43,25 @@ const Address = (props) => {
             </div>
 
             {is_owner && AddressDetail ? (<>
-                <div>
-                    <p>Address line: {address_line1}</p>
-                    <p>Additional address line: {address_line2}</p>
-                    <p>Postal code: {postal_code} {city}</p>
-                </div>
-                <div>
-                    <p>Contact person: {contact_person_name}</p>
-                    <p>Phone number: {contact_phone_number}</p>
-                    <p>Email address: {contact_email}</p>
-                </div>
+                <table>
+                    <tr>
+                        <td>Address</td>
+                        <td>{address_line1}</td>
+                    </tr>
+                    <tr>
+                        <td>Additional address</td>
+                        <td>{address_line2}</td>
+                    </tr>
+                    <tr>
+                        <td>Postal code/ City</td>
+                        <td className={styles.PostalCodeCity}>{postal_code} {city}</td>
+                    </tr>
+                </table>
+
                 <div className={styles.EditDeleteDiv}>
-                    <button className={styles.EditButton} onClick={handleEdit}>Edit</button>
-                    <button className={styles.DeleteButton} onClick={handleDelete}>Delete</button>
-                </div>
+                        <button className={styles.EditButton} onClick={handleEdit}>Edit</button>
+                        <button className={styles.DeleteButton} onClick={handleDelete}>Delete</button>
+                    </div>
             </>) : (<>
                 <Link className={styles.AddressLinkText} to={`/address/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
                     Details <i className="fa-solid fa-arrow-right"/>

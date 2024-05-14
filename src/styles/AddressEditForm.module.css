@@ -2,6 +2,16 @@ p {
     margin: 0px;
 }
 
+tr {
+    border-bottom: 2px solid rgb(50, 50, 50);
+}
+
+td {
+    color: rgb(200, 200, 200);
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
 .Button {
     border: none;
     background-color: rgb(255, 100, 125);
@@ -45,20 +55,18 @@ p {
 .FormControl {
     background-color: rgb(30, 30, 30);
     color: rgb(200, 200, 200);
-    border-radius: 3px;
-    border: 2px solid rgb(50, 50, 50);
+    border: none;
 }
 .FormControl:focus {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(30, 30, 30);
     color: rgb(200, 200, 200);
-    border: 2px solid rgb(255, 100, 125);
     box-shadow: none;
-    border-radius: 3px;
 }
 .FormControl:hover {
-    border: 2px solid rgb(255, 100, 125);
-    box-shadow: 0px 0px 5px rgb(255, 100, 125);
+    border: none;
+    box-shadow: none;
+    color: rgb(255, 100, 125);
 }
 .FormControl::placeholder {
-    color: rgb(200, 200, 200);
+    color: rgb(100, 100, 100);
 }

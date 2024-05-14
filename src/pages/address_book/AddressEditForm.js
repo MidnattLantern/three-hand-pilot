@@ -99,50 +99,78 @@ const AddressEditForm = () => {
     };
 
     return(
-        <div className={styles.AddressEditMainland}>
+        <div>
+            <h1>Edit {partnering_end}</h1>
             <Form onSubmit={handleSubmit}>
-                <Form.Group className={styles.AddressEditDiv}>
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="partnering_end"
-                    value={partnering_end}
-                    onChange={handleChange}
-                    placeholder="Partnering end may not be blank!"
-                    />
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="address_line1"
-                    value={address_line1}
-                    onChange={handleChange}
-                    placeholder="Address"
-                    />
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="address_line2"
-                    value={address_line2}
-                    onChange={handleChange}
-                    placeholder="Additional address"
-                    />
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="city"
-                    value={city}
-                    onChange={handleChange}
-                    placeholder="City"
-                    />
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="postal_code"
-                    value={postal_code}
-                    onChange={handleChange}
-                    placeholder="Postal code"
-                    />
+                <Form.Group>
+                    <table>
+                        <tr>
+                            <td>Partnering end</td>
+                            <td>
+                                <Form.Control
+                                className={styles.FormControl}
+                                type="text"
+                                name="partnering_end"
+                                value={partnering_end}
+                                onChange={handleChange}
+                                placeholder="Partnering end may not be blank!"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>
+                                <Form.Control
+                                className={styles.FormControl}
+                                type="text"
+                                name="address_line1"
+                                value={address_line1}
+                                onChange={handleChange}
+                                placeholder="Enter address"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Additional address</td>
+                            <td>
+                                <Form.Control
+                                className={styles.FormControl}
+                                type="text"
+                                name="address_line2"
+                                value={address_line2}
+                                onChange={handleChange}
+                                placeholder="Enter additional address"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Postal code</td>
+                            <td>
+                                <Form.Control
+                                className={styles.FormControl}
+                                type="text"
+                                name="postal_code"
+                                value={postal_code}
+                                onChange={handleChange}
+                                placeholder="enter postal code"
+                                />
 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>
+                                <Form.Control
+                                className={styles.FormControl}
+                                type="text"
+                                name="city"
+                                value={city}
+                                onChange={handleChange}
+                                placeholder="Enter city name"
+                                />
+                            </td>
+                        </tr>
+                    </table>
                 </Form.Group>
                 <br/>
                 <button className={styles.Button} type="submit">Save</button>
