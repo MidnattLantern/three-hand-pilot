@@ -22,11 +22,11 @@ const AddressList = () => {
             }
         };
         fetchAddressList();
+        console.log(user_id);
     }, [pathname]);
 
     return (
         <div>
-            <p>user_id: {user_id}</p>
             {hasLoaded ? (<>
                 {addressList.results.length ? (<>
                     <InfiniteScroll

@@ -3,6 +3,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
+import styles from "../../styles/AddressCreateForm.module.css"
 
 const AddressCreateForm = () => {
     const [errors, setErrors] = useState({});
@@ -39,10 +40,11 @@ const AddressCreateForm = () => {
     };
 
     return(
-        <div>
+        <div className={styles.AddressCreateMainland}>
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
+                <Form.Group className={styles.AddressCreateDiv}>
                     <Form.Control
+                    className={styles.FormControl}
                     type="text"
                     name="partnering_end"
                     value={partnering_end}
@@ -54,7 +56,8 @@ const AddressCreateForm = () => {
                 {errors?.partnering_end?.map((message, idx) => (
                     <p key={idx}>{message}</p>
                 ))}
-                <button type="submit">Submit</button>
+                <br/>
+                <button className={styles.Button} type="submit">Submit</button>
             </Form>
         </div>
     )

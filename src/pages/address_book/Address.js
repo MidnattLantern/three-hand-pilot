@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/Address.module.css"
 
 const Address = (props) => {
     const {
@@ -29,21 +30,22 @@ const Address = (props) => {
     };
 
     return (
-        <div>
-            <div>
+        <div className={styles.AddressMainland}>
+            <div className={styles.PartneringEnd}>
                 <p>{partnering_end}</p>
             </div>
 
             {is_owner && AddressDetail ? (<>
-                <div>
-                    <button onClick={handleEdit}>Edit</button>
-                    <button onClick={handleDelete}>Delete</button>
+                <div className={styles.EditDeleteDiv}>
+                    <button className={styles.EditButton} onClick={handleEdit}>Edit</button>
+                    <button className={styles.DeleteButton} onClick={handleDelete}>Delete</button>
                 </div>
             </>) : (<>
-                <Link to={`/address/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
+                <Link className={styles.AddressLinkText} to={`/address/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
                     Details <i className="fa-solid fa-arrow-right"/>
                 </Link>
             </>)}
+
         </div>
     );
 };

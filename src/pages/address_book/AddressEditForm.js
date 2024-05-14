@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
 import axios from "axios";
+import styles from "../../styles/AddressEditForm.module.css";
 
 const AddressEditForm = () => {
     const [errors, setErrors] = useState({});
@@ -54,10 +55,11 @@ const AddressEditForm = () => {
     };
 
     return(
-        <div>
+        <div className={styles.AddressEditMainland}>
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
+                <Form.Group className={styles.AddressEditDiv}>
                     <Form.Control
+                    className={styles.FormControl}
                     type="text"
                     name="partnering_end"
                     value={partnering_end}
@@ -69,7 +71,8 @@ const AddressEditForm = () => {
                 {errors?.partnering_end?.map((message, idx) => (
                     <p key={idx}>{message}</p>
                 ))}
-                <button type="submit">Save</button>
+                <br/>
+                <button className={styles.Button} type="submit">Save</button>
             </Form>
         </div>
     )
