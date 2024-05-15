@@ -19,9 +19,7 @@ import AddressComponent from "./components/AddressComponent";
 function App() {
 
   return (
-    <div>
-
-      <div className={styles.MainViewPosition}>
+    <div className={styles.AppContainer}>
         <div className={styles.MainViewContainer}>
           <Switch>
             <Route exact path="/signin" render={() => <SignInForm /> } />
@@ -40,14 +38,9 @@ function App() {
             <Route path="/" render={() => <h1>Page not found</h1>} />
           </Switch>
         </div>
-        </div>
-
-      <div className={styles.NavBarPosition}>
         <div className={styles.NavBarContainer}>
           <NavBar/>
         </div>
-      </div>
-
     </div>
   )
 };

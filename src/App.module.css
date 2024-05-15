@@ -1,23 +1,24 @@
-.MainViewPosition {
-    min-height: 100%;
+.AppContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
 .MainViewContainer {
     margin: 10px;
-    padding: 10px;
     border-radius: 5px;
     margin-bottom: 0px;
-}
-.NavBarPosition {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
+
+    flex-grow: 1;
+    overflow-y: auto;
 }
 .NavBarContainer {
-    margin: 10px;
+    margin: 20px;
     border: 1px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     padding: 10px;
     border-radius: 5px;
+    height: auto;
 }
 
 p, h1 {
