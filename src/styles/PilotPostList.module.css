@@ -12,7 +12,7 @@
 }
 
 .PilotPostLinkText {
-    color: rgb(255, 100, 125);
+    color: rgb(255, 175, 100);
 }
 
 .PilotPostLinkText:hover {
@@ -25,5 +25,5 @@
 }
 
 .CreatePilotPostButton:hover {
-    color: rgb(255, 100, 125);
+    color: rgb(255, 175, 100);
 }

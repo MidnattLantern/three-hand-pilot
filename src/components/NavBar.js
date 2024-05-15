@@ -14,13 +14,13 @@ const NavBar = () => {
 
     const authenticatedOptions = <>
         <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signout">Sign out</NavLink>
+        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to={`/address/${currentAuthentication?.user_authentication_id}/_/_`}>Address</NavLink>
     </>
 
     return ( <>
         <Nav>
             <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"><i className="fas fa-home" /> Home</NavLink>
             <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/pilot_post/list">P-Post list</NavLink>
-            <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to={`/address/${currentAuthentication?.user_authentication_id}/_/_`}>Address</NavLink>
             {currentAuthentication ? authenticatedOptions : nonAuthenticatedOptions}
         </Nav>
         </> )

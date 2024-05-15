@@ -14,9 +14,9 @@ const AddressEditForm = () => {
         address_line2: "",
         city: "",
         postal_code: "",
-        contact_person_name: "",
-        contact_phone_number: "",
-        contact_email: "",
+//        contact_person_name: "",
+//        contact_phone_number: "",
+//        contact_email: "",
     });
     const {
         partnering_end,
@@ -43,9 +43,9 @@ const AddressEditForm = () => {
                     address_line2,
                     city,
                     postal_code,
-                    contact_person_name,
-                    contact_phone_number,
-                    contact_email,
+//                    contact_person_name,
+//                    contact_phone_number,
+//                    contact_email,
                 } = data
                 is_owner ? setAddressData({
                     partnering_end,
@@ -53,9 +53,9 @@ const AddressEditForm = () => {
                     address_line2,
                     city,
                     postal_code,
-                    contact_person_name,
-                    contact_phone_number,
-                    contact_email,
+//                    contact_person_name,
+//                    contact_phone_number,
+//                    contact_email,
                 }) : history.push("/");
             } catch(err) {
                 console.log(err)

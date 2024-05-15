@@ -54,7 +54,7 @@ td {
 }
 
 .EditButton:hover {
-    color: rgb(255, 100, 125);
+    color: rgb(255, 175, 100);
 }
 
 .DeleteButton:hover {
@@ -62,7 +62,7 @@ td {
 }
 
 .AddressLinkText {
-    color: rgb(255, 100, 125);
+    color: rgb(255, 175, 100);
 }
 
 .AddressLinkText:hover {

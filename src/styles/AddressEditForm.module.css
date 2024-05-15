@@ -14,7 +14,7 @@ td {
 
 .Button {
     border: none;
-    background-color: rgb(255, 100, 125);
+    background-color: rgb(255, 175, 100);
     color: rgb(30, 30, 30);
     font-weight: 700;
     border-radius: 3px;
@@ -23,10 +23,10 @@ td {
 }
 .Button:hover {
     color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 10px rgb(255, 100, 160);
+    box-shadow: 0px 0px 10px rgb(255, 175, 100);
 }
 .Button:active {
-    background-color: rgb(255, 100, 160);
+    background-color: rgb(255, 255, 255);
 }
 
 .AddressEditMainland {
@@ -46,7 +46,7 @@ td {
 
 .Anchor {
     text-decoration: underline;
-    color: rgb(255, 100, 125);
+    color: rgb(255, 175, 100);
 }
 .Anchor:hover {
     color: rgb(200, 200, 200)
@@ -65,7 +65,7 @@ td {
 .FormControl:hover {
     border: none;
     box-shadow: none;
-    color: rgb(255, 100, 125);
+    color: rgb(255, 175, 100);
 }
 .FormControl::placeholder {
     color: rgb(100, 100, 100);
