@@ -13,9 +13,9 @@ const Address = (props) => {
         address_line2,
         city,
         postal_code,
-        contact_person_name,
-        contact_phone_number,
-        contact_email,
+//        contact_person_name,
+//        contact_phone_number,
+//        contact_email,
         AddressDetail,
     } = props;
 
@@ -59,13 +59,15 @@ const Address = (props) => {
                 </table>
 
                 <div className={styles.EditDeleteDiv}>
-                        <button className={styles.EditButton} onClick={handleEdit}>Edit</button>
-                        <button className={styles.DeleteButton} onClick={handleDelete}>Delete</button>
+                        <button className={styles.EditButton} onClick={handleEdit}>Edit <i className="fa-solid fa-pen-to-square"></i></button>
+                        <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
                     </div>
             </>) : (<>
-                <Link className={styles.AddressLinkText} to={`/address/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
-                    Details <i className="fa-solid fa-arrow-right"/>
-                </Link>
+                <div className={styles.AddressLinkLocation}>
+                    <Link className={styles.AddressLinkText} to={`/address/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
+                        Open <i className="fa-solid fa-folder-open"/>
+                    </Link>
+                </div>
             </>)}
 
         </div>

@@ -15,7 +15,12 @@ const AddressComponent = () => {
         <div className={styles.AddressComponentView}>
             <div className="col-md-6">
                 <div className={styles.Mainland}>
-                    <Link to={`/address/${currentAuthentication?.user_authentication_id}/create/_`}>Create</Link>
+                    <div className={styles.AddressCreateBox}>
+                        <h1>Address list</h1>
+                        <Link className={styles.CreateButton} to={`/address/${currentAuthentication?.user_authentication_id}/create/_`}>
+                            Create <i className="fa-regular fa-square-plus"></i>
+                        </Link>
+                    </div>
                     <AddressList/>
                 </div>
             </div>

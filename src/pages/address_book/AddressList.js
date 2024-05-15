@@ -3,13 +3,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Address from "./Address";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams, } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../../styles/AddressList.module.css"
 
 const AddressList = () => {
-    const { address_id, user_id, } = useParams();
+    const { user_id, } = useParams();
     const [addressList, setAddressList] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
-    const {pathname} = useLocation();
 
     useEffect(() => {
         const fetchAddressList = async () => {
@@ -23,7 +23,7 @@ const AddressList = () => {
         };
         fetchAddressList();
         console.log(user_id);
-    }, [pathname]);
+    }, [user_id]);
 
     return (
         <div>
@@ -31,7 +31,7 @@ const AddressList = () => {
                 {addressList.results.length ? (<>
                     <InfiniteScroll
                     children={addressList.results.map((address) => (
-                        <div>
+                        <div className={styles.AddressItemBox}>
                             <Address key={address.address_id} {...address} setAddressList={setAddressList} />
                         </div>
                     ))}
