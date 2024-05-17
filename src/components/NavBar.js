@@ -13,8 +13,9 @@ const NavBar = () => {
     </>
 
     const authenticatedOptions = <>
-        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signout">Sign out</NavLink>
         <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to={`/address/${currentAuthentication?.user_authentication_id}/_/_`}>Address</NavLink>
+        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to={`/product/${currentAuthentication?.user_authentication_id}/_/_`}>Product</NavLink>
+        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signout">Sign out</NavLink>
     </>
 
     return ( <>

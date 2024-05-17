@@ -15,6 +15,7 @@ import PilotPostDetail from "./pages/pilotpost/PilotPostDetail";
 import PilotPostEditForm from "./pages/pilotpost/PilotPostEditForm";
 
 import AddressComponent from "./components/AddressComponent";
+import ProductComponent from "./components/ProductComponent";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/pilot_post/edit/:id" render={() => <PilotPostEditForm />} />
 
             <Route exact path="/address/:user_id/:action/:address_id" render={() => <AddressComponent />} />
+            <Route exact path="/product/:user_id/:action/:address_id" render={() => <ProductComponent />} />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />
