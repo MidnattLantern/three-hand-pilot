@@ -27,19 +27,20 @@ const ProductComponent = () => {
     return (
         <div className={styles.ProductComponentView}>
             <div className="col-md-6">
-                <div className={styles.Mainland}>
-                    <div>
-                        <h1>Products</h1>
-                        <br/>
+
+                <div className={styles.MainContainer}>
+                    <h1>Products</h1>
+                    <br/>
+                    <div className={styles.ScrollableList}>
                         <Link to={`/product/${currentAuthentication?.user_authentication_id}/create/_`}>
                             <h1 className={styles.CreateButton}>New product <i className="fa-regular fa-square-plus"></i></h1>
                         </Link>
+                        <ProductList />
                     </div>
-                    <ProductList />
                 </div>
             </div>
             <div className="col-md-6">
-                <div className={styles.Island}>
+                <div className={styles.SubContainer}>
                     {renderAction(action)}
                 </div>
             </div>

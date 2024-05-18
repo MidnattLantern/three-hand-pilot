@@ -1,18 +1,21 @@
-.Mainland, .Island {
+.MainContainer, .SubContainer {
     border: 1px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     border-radius: 5px;
     margin: 10px;
-    padding: 20px;
+    margin-bottom: 0px;
+    padding: 40px;
     min-height: 100%;
 }
 
 .ProductComponentView {
     display: flex;
+    height: 100%;
 }
 
 .CreateButton {
     color: rgb(200, 200, 200);
+    background-color: rgb(30, 30, 30);
     border: 2px solid rgb(50, 50, 50);
     border-radius: 3px;
     padding: 20px;
@@ -33,4 +36,16 @@
 
 h1 {
     text-align: center;
+}
+
+.ScrollableList {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 10px;
+    padding-bottom: 2px;
+    height: 62vh;
+    /* scrollable div*/
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

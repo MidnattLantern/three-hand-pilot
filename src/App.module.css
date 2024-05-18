@@ -5,12 +5,11 @@
 }
 
 .MainViewContainer {
-    margin: 10px;
+    padding: 10px;
     border-radius: 5px;
     margin-bottom: 0px;
-
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: auto;;
 }
 .NavBarContainer {
     margin: 20px;
