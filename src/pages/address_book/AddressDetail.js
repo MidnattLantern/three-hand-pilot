@@ -13,16 +13,17 @@ const AddressDetail = () => {
                 const [{ data: address }] = await Promise.all([
                     axiosReq.get(`/address_book/${address_id}`)
                 ]);
-                setAddressDetail({ results: [address]})
+                setAddressDetail({ results: [address] });
             } catch(err) {
                 console.log(err)
-            }
+            };
         };
         handleMount();
     }, [address_id]);
 
     return(
         <div>
+            <p>address_id: {address_id}</p>
             <Address {...addressDetail.results[0]} setAddressDetail={setAddressDetail} AddressDetail/>
         </div>
     );

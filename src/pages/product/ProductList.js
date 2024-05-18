@@ -4,7 +4,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Product from "./Product";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import styles from "../../styles/ProductList.module.css";
+//import styles from "../../styles/ProductList.module.css";
 
 const ProductList = () => {
     const { user_id } = useParams();
@@ -46,7 +46,6 @@ const ProductList = () => {
             </>) : (<>
             <p>Not loaded</p>
             </>)}
-            <h1>ProductList</h1>
         </div>
     );
 };

@@ -17,19 +17,35 @@ const Product = (props) => {
     const is_owner = currentAuthentication?.username === owner;
     const history = useHistory();
 
-
-
     return (
         <div>
-            <h1>Product.js</h1>
-            <p>id: {id}</p>
-            <p>owner: {owner}</p>
-            <p>product name: {product_name}</p>
-            <p>serial number prefix: {serial_number_prefix}</p>
-            {ProductDetail ? (<>
-            <p>Product detail</p>
+            <div>
+                <h1>Product: {product_name}</h1>
+            </div>
+
+            {is_owner ? (<p>true</p>) : (<p>false</p>)}
+
+            {is_owner && ProductDetail ? (<>
+                <table>
+                    <tr>
+                        <td>Product name:</td>
+                        <td>{product_name}</td>
+                    </tr>
+                    <tr>
+                        <td>Serial number prefix:</td>
+                        <td>{serial_number_prefix}</td>
+                    </tr>
+                </table>
+                <div>
+                    <button>Edit <i className="fa-solid fa-pen-to-square"></i></button>
+                    <button>Delete <i className="fa-solid fa-xmark"></i></button>
+                </div>
             </>) : (<>
-            <p>NOT product detail</p>
+                <Link className={styles.AddressLinkText} to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
+                    <div>
+                        Open <i className="fa-solid fa-folder-open"/>
+                    </div>
+                </Link>
             </>)}
         </div>
     );
