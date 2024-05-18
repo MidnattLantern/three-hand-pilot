@@ -7,6 +7,19 @@ import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/AddressComponent.module.css"
 import { useCurrentAuthentication } from "../contexts/CurrentAuthenticationContext";
 
+const renderAction = (action) => {
+    switch (action) {
+        case 'create':
+            return <AddressCreateForm />;
+        case 'detail':
+            return <AddressDetail />;
+        case 'edit':
+            return <AddressEditForm />;
+        default:
+            return null;
+    };
+};
+
 const AddressComponent = () => {
     const { action } = useParams();
     const currentAuthentication = useCurrentAuthentication();
@@ -24,25 +37,9 @@ const AddressComponent = () => {
                     <AddressList/>
                 </div>
             </div>
-
             <div className="col-md-6">
                 <div className={styles.Island}>
-                    {action === "create" ? (<>
-                    <h1>Create new address</h1>
-                    <AddressCreateForm/>
-                    </>) : (<></>)}
-
-                    {action === "_" ? (<>
-
-                    </>) : (<></>)}
-
-                    {action === "detail" ? (<>
-                    <AddressDetail/>
-                    </>) : (<></>)}
-
-                    {action === "edit" ? (<>
-                    <AddressEditForm/>
-                    </>) : (<></>)}
+                    {renderAction(action)}
                 </div>
             </div>
         </div>

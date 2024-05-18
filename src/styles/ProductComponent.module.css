@@ -1,0 +1,38 @@
+.Mainland, .Island {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(30, 30, 30);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    min-height: 100%;
+}
+
+.ProductComponentView {
+    display: flex;
+}
+
+.CreateButton {
+    color: rgb(255, 175, 100);
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 3px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    margin: 0px;
+}
+.CreateButton:hover {
+    text-decoration: underline;
+}
+
+.ProductCreateBox {
+    border: 2px solid rgb(50, 50, 50);
+    border-radius: 3px;
+    margin: 10px;
+    padding: 10px;
+    padding-bottom: 20px;
+    font-family: Jost, sans-serif;
+    text-align: right;
+}
+
+h1 {
+    text-align: center;
+}

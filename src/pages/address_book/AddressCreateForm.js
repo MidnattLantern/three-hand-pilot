@@ -3,7 +3,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
-import styles from "../../styles/AddressCreateForm.module.css"
+import styles from "../../styles/AddressCreateForm.module.css";
 
 const AddressCreateForm = () => {
     const [errors, setErrors] = useState({});
@@ -22,21 +22,20 @@ const AddressCreateForm = () => {
     };
 
     const handleSubmit = async (event) => {
-        console.log("click button")
         event.preventDefault();
         const formData = new FormData();
 
         formData.append("partnering_end", partnering_end);
 
         try {
-            await axiosReq.post("/address_book/ ", formData);
+            await axiosReq.post("/address_book/", formData);
             history.push(`/address/${currentAuthentication?.user_authentication_id}/_/_`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
-            }
-        }
+            };
+        };
     };
 
     return(
@@ -51,7 +50,6 @@ const AddressCreateForm = () => {
                     onChange={handleChange}
                     placeholder="Partnering End"
                     />
-
                 </Form.Group>
                 {errors?.partnering_end?.map((message, idx) => (
                     <p key={idx}>{message}</p>

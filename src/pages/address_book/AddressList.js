@@ -19,7 +19,7 @@ const AddressList = () => {
                 setHasLoaded(true);
             } catch(err){
                 console.log(err);
-            }
+            };
         };
         fetchAddressList();
         console.log(user_id);
