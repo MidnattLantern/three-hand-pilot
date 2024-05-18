@@ -17,6 +17,19 @@ const Product = (props) => {
     const is_owner = currentAuthentication?.username === owner;
     const history = useHistory();
 
+    const handleEdit = () => {
+        history.push(`/product/${currentAuthentication?.user_authentication_id}/edit/${id}`);
+    };
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/product/${id}`);
+            history.push(`/product/${currentAuthentication?.user_authentication_id}/_/_`)
+        } catch(err) {
+            console.log(err);
+        }
+    };
+
     return (
         <div>
             <div>
@@ -35,8 +48,8 @@ const Product = (props) => {
                     </tr>
                 </table>
                 <div className={styles.EditDeleteDiv}>
-                    <button className={styles.EditButton}>Edit <i className="fa-solid fa-pen-to-square"></i></button>
-                    <button className={styles.DeleteButton}>Delete <i className="fa-solid fa-xmark"></i></button>
+                    <button className={styles.EditButton} onClick={handleEdit}>Edit <i className="fa-solid fa-pen-to-square"></i></button>
+                    <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
                 </div>
             </>) : (<>
                 <div className={styles.ProductLinkLocation}>

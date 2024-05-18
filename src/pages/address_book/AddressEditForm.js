@@ -59,8 +59,8 @@ const AddressEditForm = () => {
                 }) : history.push("/");
             } catch(err) {
                 console.log(err)
-            }
-        }
+            };
+        };
         handleMount();
     }, [history, address_id]);
 
@@ -72,7 +72,6 @@ const AddressEditForm = () => {
     };
 
     const handleSubmit = async (event) => {
-        console.log("click button")
         event.preventDefault();
         const formData = new FormData();
 
@@ -94,8 +93,8 @@ const AddressEditForm = () => {
             if (err.response?.status !== 401) {
 //                setErrors(err.response?.data);
                 console.log(err.response?.data);
-            }
-        }
+            };
+        };
     };
 
     return(
