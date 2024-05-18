@@ -35,16 +35,12 @@ const ProductList = () => {
                     </div>
                 ))}
                 dataLength={productList.results.length}
-                loader={<p>loading...</p>}
+                loader={<h1>loading...</h1>}
                 hasMore={!!productList.next}
                 next={() => fetchMoreData(productList, setProductList)}
                 />
-            </>) : (<>
-                <p>No results</p>
-            </>)}
-            </>) : (<>
-            <p>Not loaded</p>
-            </>)}
+            </>) : (null)}
+            </>) : (<h1>loading...</h1>)}
         </div>
     );
 };
