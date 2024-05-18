@@ -42,10 +42,12 @@ const Address = (props) => {
                 <h1>{partnering_end}</h1>
             </div>
 
-            {is_owner ? (<p>true</p>) : (<p>false</p>)}
-
             {is_owner && AddressDetail ? (<>
                 <table>
+                    <tr>
+                        <td>Partnering end</td>
+                        <td>{partnering_end}</td>
+                    </tr>
                     <tr>
                         <td>Address</td>
                         <td>{address_line1}</td>

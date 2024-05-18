@@ -23,7 +23,6 @@ const AddressDetail = () => {
 
     return(
         <div>
-            <p>address_id: {address_id}</p>
             <Address {...addressDetail.results[0]} setAddressDetail={setAddressDetail} AddressDetail/>
         </div>
     );

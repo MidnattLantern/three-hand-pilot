@@ -23,7 +23,6 @@ const ProductDetail = () => {
 
     return(
         <div>
-            <p>product_id: {product_id}</p>
             <Product {...productDetail.results[0]} setProductDetail={setProductDetail} ProductDetail/>
         </div>
     );

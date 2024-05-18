@@ -23,8 +23,6 @@ const Product = (props) => {
                 <h1>Product: {product_name}</h1>
             </div>
 
-            {is_owner ? (<p>true</p>) : (<p>false</p>)}
-
             {is_owner && ProductDetail ? (<>
                 <table>
                     <tr>
@@ -36,16 +34,16 @@ const Product = (props) => {
                         <td>{serial_number_prefix}</td>
                     </tr>
                 </table>
-                <div>
-                    <button>Edit <i className="fa-solid fa-pen-to-square"></i></button>
-                    <button>Delete <i className="fa-solid fa-xmark"></i></button>
+                <div className={styles.EditDeleteDiv}>
+                    <button className={styles.EditButton}>Edit <i className="fa-solid fa-pen-to-square"></i></button>
+                    <button className={styles.DeleteButton}>Delete <i className="fa-solid fa-xmark"></i></button>
                 </div>
             </>) : (<>
-                <Link className={styles.AddressLinkText} to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
-                    <div>
+                <div className={styles.ProductLinkLocation}>
+                    <Link className={styles.ProductLinkText} to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
                         Open <i className="fa-solid fa-folder-open"/>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </>)}
         </div>
     );

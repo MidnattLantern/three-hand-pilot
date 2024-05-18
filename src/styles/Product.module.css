@@ -1,0 +1,80 @@
+.ProductMainland {
+    text-decoration: none;
+}
+
+.PartneringEnd {
+    width: 100%;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+tr {
+    border-bottom: 2px solid rgb(50, 50, 50);
+}
+
+td {
+    color: rgb(200, 200, 200);
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.PostalCodeCity {
+    text-transform: uppercase;
+}
+
+.EditDeleteDiv {
+    margin-top: 10px;
+    display: flex;
+    text-align: center;
+}
+
+.EditButton {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(0, 0, 0);
+    color: rgb(200, 200, 200);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 90px;
+}
+
+.DeleteButton {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(0, 0, 0);
+    color: rgb(200, 200, 200);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 90px;
+    margin-left: 20px;
+}
+
+.EditButton:hover {
+    color: rgb(255, 175, 100);
+    text-decoration: underline;
+}
+
+.DeleteButton:hover {
+    color: red;
+}
+
+.ProductLinkText {
+    color: rgb(255, 175, 100);
+    border: 2px solid rgb(50, 50, 50);
+    border-radius: 3px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+}
+
+.ProductLinkText:hover {
+    text-decoration: underline;
+}
+
+.ProductLinkLocation {
+    text-align: right;
+    margin-bottom: 10px;
+}
