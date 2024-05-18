@@ -28,10 +28,11 @@ const ProductComponent = () => {
         <div className={styles.ProductComponentView}>
             <div className="col-md-6">
                 <div className={styles.Mainland}>
-                    <div className={styles.ProductCreateBox}>
-                        <h1>Product List</h1>
-                        <Link className={styles.CreateButton} to={`/product/${currentAuthentication?.user_authentication_id}/create/_`}>
-                            Create <i className="fa-regular fa-square-plus"></i>
+                    <div>
+                        <h1>Products</h1>
+                        <br/>
+                        <Link to={`/product/${currentAuthentication?.user_authentication_id}/create/_`}>
+                            <h1 className={styles.CreateButton}>New product <i className="fa-regular fa-square-plus"></i></h1>
                         </Link>
                     </div>
                     <ProductList />

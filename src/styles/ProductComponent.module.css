@@ -12,21 +12,19 @@
 }
 
 .CreateButton {
-    color: rgb(255, 175, 100);
-    border: 1px solid rgb(50, 50, 50);
+    color: rgb(200, 200, 200);
+    border: 2px solid rgb(50, 50, 50);
     border-radius: 3px;
-    background-color: rgb(0, 0, 0);
-    padding: 10px;
-    margin: 0px;
+    padding: 20px;
 }
 .CreateButton:hover {
-    text-decoration: underline;
+    color: rgb(255, 175, 100);
+    border: 2px solid rgb(255, 175, 100);
 }
 
 .ProductCreateBox {
-    border: 2px solid rgb(50, 50, 50);
+    border: 2px none rgb(50, 50, 50);
     border-radius: 3px;
-    margin: 10px;
     padding: 10px;
     padding-bottom: 20px;
     font-family: Jost, sans-serif;

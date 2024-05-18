@@ -74,6 +74,7 @@ const ProductEditForm = () => {
                             <td>Product name</td>
                             <td>
                                 <Form.Control
+                                className={styles.FormControl}
                                 type="text"
                                 name="product_name"
                                 value={product_name}
@@ -86,6 +87,7 @@ const ProductEditForm = () => {
                             <td>Serial number prefix</td>
                             <td>
                                 <Form.Control
+                                className={styles.FormControl}
                                 type="text"
                                 name="serial_number_prefix"
                                 value={serial_number_prefix}
@@ -97,7 +99,7 @@ const ProductEditForm = () => {
                     </table>
                 </Form.Group>
                 <br/>
-                <button type="submit">Save</button>
+                <button className={styles.Button} type="submit">Save</button>
             </Form>
         </div>
     );

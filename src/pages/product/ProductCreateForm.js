@@ -37,17 +37,25 @@ const ProductCreateForm = () => {
     };
 
     return(
-        <div className={styles.ProductCreateMainland}>
+        <div>
+            <h1>Create new product</h1>
             <Form onSubmit={handleSubmit}>
-                <Form.Group className={styles.ProductCreateDiv}>
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="product_name"
-                    value={product_name}
-                    onChange={handleChange}
-                    placeholder="Product name"
-                    />
+                <Form.Group>
+                    <table>
+                        <tr>
+                        <td>Product name</td>
+                            <td>
+                                <Form.Control
+                                className={styles.FormControl}
+                                type="text"
+                                name="product_name"
+                                value={product_name}
+                                onChange={handleChange}
+                                placeholder="Type here"
+                                />
+                            </td>
+                        </tr>
+                    </table>
                 </Form.Group>
                 {errors?.product_name?.map((message, idx) => (
                     <p key={idx}>{message}</p>

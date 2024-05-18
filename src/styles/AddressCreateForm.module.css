@@ -62,3 +62,22 @@ p {
 .FormControl::placeholder {
     color: rgb(200, 200, 200);
 }
+
+.FormControl {
+    background-color: rgb(30, 30, 30);
+    color: rgb(200, 200, 200);
+    border: none;
+}
+.FormControl:focus {
+    background-color: rgb(30, 30, 30);
+    color: rgb(200, 200, 200);
+    box-shadow: none;
+}
+.FormControl:hover {
+    border: none;
+    box-shadow: none;
+    color: rgb(255, 175, 100);
+}
+.FormControl::placeholder {
+    color: rgb(100, 100, 100);
+}

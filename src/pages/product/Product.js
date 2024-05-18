@@ -32,11 +32,8 @@ const Product = (props) => {
 
     return (
         <div>
-            <div>
-                <h1>Product: {product_name}</h1>
-            </div>
-
             {is_owner && ProductDetail ? (<>
+                <h1>{product_name}</h1>
                 <table>
                     <tr>
                         <td>Product name:</td>
@@ -52,11 +49,11 @@ const Product = (props) => {
                     <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
                 </div>
             </>) : (<>
-                <div className={styles.ProductLinkLocation}>
-                    <Link className={styles.ProductLinkText} to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
-                        Open <i className="fa-solid fa-folder-open"/>
-                    </Link>
-                </div>
+                
+                <Link to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
+                    <h1 className={styles.ProductLinkText}>{product_name}</h1>
+                </Link>
+                
             </>)}
         </div>
     );

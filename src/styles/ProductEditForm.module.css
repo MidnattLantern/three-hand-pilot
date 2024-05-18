@@ -1,0 +1,72 @@
+p {
+    margin: 0px;
+}
+
+tr {
+    border-bottom: 2px solid rgb(50, 50, 50);
+}
+
+td {
+    color: rgb(200, 200, 200);
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.Button {
+    border: none;
+    background-color: rgb(255, 175, 100);
+    color: rgb(30, 30, 30);
+    font-weight: 700;
+    border-radius: 3px;
+    margin-top: 10px;
+    height: 40px;
+}
+.Button:hover {
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgb(255, 175, 100);
+}
+.Button:active {
+    background-color: rgb(255, 255, 255);
+}
+
+.ProductEditMainland {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(30, 30, 30);
+    border-radius: 5px;
+    width: 500px;
+    align-items: center;
+    margin: auto;
+    margin-top: 10vh;
+    padding: 20px;
+}
+
+.ProductEditDiv {
+    display: block;
+}
+
+.Anchor {
+    text-decoration: underline;
+    color: rgb(255, 175, 100);
+}
+.Anchor:hover {
+    color: rgb(200, 200, 200)
+}
+
+.FormControl {
+    background-color: rgb(30, 30, 30);
+    color: rgb(200, 200, 200);
+    border: none;
+}
+.FormControl:focus {
+    background-color: rgb(30, 30, 30);
+    color: rgb(200, 200, 200);
+    box-shadow: none;
+}
+.FormControl:hover {
+    border: none;
+    box-shadow: none;
+    color: rgb(255, 175, 100);
+}
+.FormControl::placeholder {
+    color: rgb(100, 100, 100);
+}

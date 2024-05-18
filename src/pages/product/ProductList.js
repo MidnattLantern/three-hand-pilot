@@ -4,7 +4,6 @@ import { fetchMoreData } from "../../utils/utils";
 import Product from "./Product";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import styles from "../../styles/ProductList.module.css";
 
 const ProductList = () => {
     const { user_id } = useParams();
@@ -14,7 +13,7 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProductList = async () => {
             try {
-                const { data } = await axiosReq.get(`/product/`);
+                const { data } = await axiosReq.get(`/product/?owner__userauthentication=${user_id}`);
                 setProductList(data);
                 setHasLoaded(true);
             } catch(err) {
@@ -31,7 +30,7 @@ const ProductList = () => {
             {productList.results.length ? (<>
                 <InfiniteScroll
                 children={productList.results.map((product) => (
-                    <div className={styles.ProductItemBox}>
+                    <div>
                         <Product key={product.product_id} {...product} setProductList={setProductList} />
                     </div>
                 ))}
