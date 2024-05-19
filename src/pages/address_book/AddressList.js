@@ -4,7 +4,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Address from "./Address";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams, } from "react-router-dom/cjs/react-router-dom.min";
-import styles from "../../styles/AddressList.module.css"
+// no CSS
 
 const AddressList = () => {
     const { user_id, } = useParams();
@@ -31,22 +31,15 @@ const AddressList = () => {
                 {addressList.results.length ? (<>
                     <InfiniteScroll
                     children={addressList.results.map((address) => (
-                        <div className={styles.AddressItemBox}>
-                            <Address key={address.address_id} {...address} setAddressList={setAddressList} />
-                        </div>
+                        <Address key={address.address_id} {...address} setAddressList={setAddressList} />
                     ))}
                     dataLength={addressList.results.length}
-                    loader={<p>loading...</p>}
+                    loader={<h1>loading...</h1>}
                     hasMore={!!addressList.next}
                     next={() => fetchMoreData(addressList, setAddressList)}
                     />
-                </>) : (<>
-                <p>No results</p>
-                </>)}
-
-            </>) : (<>
-            <p>Loading</p>
-            </>)}
+                </>) : (null)}
+            </>) : (<h1>loading...</h1>)}
         </div>
     );
 };

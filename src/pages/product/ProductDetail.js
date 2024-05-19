@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import Product from "./Product";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+// no CSS
 
 const ProductDetail = () => {
     const { product_id } = useParams();

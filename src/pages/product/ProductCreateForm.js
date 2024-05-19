@@ -44,16 +44,16 @@ const ProductCreateForm = () => {
                     <table>
                         <tr>
                         <td>Product name</td>
-                            <td>
-                                <Form.Control
-                                className={styles.FormControl}
-                                type="text"
-                                name="product_name"
-                                value={product_name}
-                                onChange={handleChange}
-                                placeholder="Type here"
-                                />
-                            </td>
+                        <td>
+                            <Form.Control
+                            className={styles.FormControl}
+                            type="text"
+                            name="product_name"
+                            value={product_name}
+                            onChange={handleChange}
+                            placeholder="Type here"
+                            />
+                        </td>
                         </tr>
                     </table>
                 </Form.Group>

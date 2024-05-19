@@ -8,7 +8,7 @@
     min-height: 100%;
 }
 
-.ProductComponentView {
+.EntityBankComponentView {
     display: flex;
     height: 100%;
 }
@@ -23,15 +23,6 @@
 .CreateButton:hover {
     color: rgb(255, 175, 100);
     border: 2px solid rgb(255, 175, 100);
-}
-
-.ProductCreateBox {
-    border: 2px none rgb(50, 50, 50);
-    border-radius: 3px;
-    padding: 10px;
-    padding-bottom: 20px;
-    font-family: Jost, sans-serif;
-    text-align: right;
 }
 
 h1 {

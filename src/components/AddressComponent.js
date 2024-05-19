@@ -4,7 +4,7 @@ import AddressList from "../pages/address_book/AddressList";
 import AddressDetail from "../pages/address_book/AddressDetail";
 import AddressEditForm from "../pages/address_book/AddressEditForm";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import styles from "../styles/AddressComponent.module.css"
+import styles from "../styles/EntityBankComponent.module.css";
 import { useCurrentAuthentication } from "../contexts/CurrentAuthenticationContext";
 
 const renderAction = (action) => {
@@ -25,20 +25,21 @@ const AddressComponent = () => {
     const currentAuthentication = useCurrentAuthentication();
 
     return (
-        <div className={styles.AddressComponentView}>
+        <div className={styles.EntityBankComponentView}>
             <div className="col-md-6">
-                <div className={styles.Mainland}>
-                    <div className={styles.AddressCreateBox}>
-                        <h1>Address list</h1>
-                        <Link className={styles.CreateButton} to={`/address/${currentAuthentication?.user_authentication_id}/create/_`}>
-                            Create <i className="fa-regular fa-square-plus"></i>
+                <div className={styles.MainContainer}>
+                    <h1>Address book</h1>
+                    <br/>
+                    <div className={styles.ScrollableList}>
+                        <Link to={`/address/${currentAuthentication?.user_authentication_id}/create/_`}>
+                            <h1 className={styles.CreateButton}>New product <i className="fa-regular fa-square-plus"></i></h1>
                         </Link>
+                        <AddressList/>
                     </div>
-                    <AddressList/>
                 </div>
             </div>
             <div className="col-md-6">
-                <div className={styles.Island}>
+                <div className={styles.SubContainer}>
                     {renderAction(action)}
                 </div>
             </div>

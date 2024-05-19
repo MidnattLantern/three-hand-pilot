@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import Address from "./Address";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+// no CSS
 
 const AddressDetail = () => {
     const { address_id } = useParams();

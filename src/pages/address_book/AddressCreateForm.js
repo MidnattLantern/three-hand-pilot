@@ -3,7 +3,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
-import styles from "../../styles/AddressCreateForm.module.css";
+import styles from "../../styles/EntityBankCRUDForm.module.css";
 
 const AddressCreateForm = () => {
     const [errors, setErrors] = useState({});
@@ -40,22 +40,33 @@ const AddressCreateForm = () => {
 
     return(
         <div className={styles.AddressCreateMainland}>
+            <h1>Create new address</h1>
             <Form onSubmit={handleSubmit}>
-                <Form.Group className={styles.AddressCreateDiv}>
-                    <Form.Control
-                    className={styles.FormControl}
-                    type="text"
-                    name="partnering_end"
-                    value={partnering_end}
-                    onChange={handleChange}
-                    placeholder="Partnering End"
-                    />
+                <Form.Group>
+                    <table>
+                        <tr>
+                        <td>Partnering end</td>
+                        <td>
+                            <Form.Control
+                            className={styles.FormControl}
+                            type="text"
+                            name="partnering_end"
+                            value={partnering_end}
+                            onChange={handleChange}
+                            placeholder="Partnering End"
+                            />
+                        </td>
+                        </tr>
+                    </table>
                 </Form.Group>
                 {errors?.partnering_end?.map((message, idx) => (
                     <p key={idx}>{message}</p>
                 ))}
                 <br/>
-                <button className={styles.Button} type="submit">Submit</button>
+                <div className={styles.SaveButtonContainer}>
+                    <button className={styles.Button} type="submit">Submit</button>
+                    <p className={styles.Button} onClick={history.goBack}>Cancel</p>
+                </div>
             </Form>
         </div>
     )

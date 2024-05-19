@@ -4,6 +4,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Product from "./Product";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+// no CSS
 
 const ProductList = () => {
     const { user_id } = useParams();
@@ -30,9 +31,7 @@ const ProductList = () => {
             {productList.results.length ? (<>
                 <InfiniteScroll
                 children={productList.results.map((product) => (
-                    <div>
-                        <Product key={product.product_id} {...product} setProductList={setProductList} />
-                    </div>
+                    <Product key={product.product_id} {...product} setProductList={setProductList} />
                 ))}
                 dataLength={productList.results.length}
                 loader={<h1>loading...</h1>}

@@ -25,9 +25,8 @@ const ProductComponent = () => {
     const currentAuthentication = useCurrentAuthentication();
 
     return (
-        <div className={styles.ProductComponentView}>
+        <div className={styles.EntityBankComponentView}>
             <div className="col-md-6">
-
                 <div className={styles.MainContainer}>
                     <h1>Products</h1>
                     <br/>

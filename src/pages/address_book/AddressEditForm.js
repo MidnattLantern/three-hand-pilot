@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
 import axios from "axios";
-import styles from "../../styles/AddressEditForm.module.css";
+import styles from "../../styles/EntityBankCRUDForm.module.css";
 
 const AddressEditForm = () => {
 //    const [errors, setErrors] = useState({});
@@ -172,7 +172,10 @@ const AddressEditForm = () => {
                     </table>
                 </Form.Group>
                 <br/>
-                <button className={styles.Button} type="submit">Save</button>
+                <div className={styles.SaveButtonContainer}>
+                    <button className={styles.Button} type="submit">Save</button>
+                    <p className={styles.Button} onClick={() => {history.goBack()}}>Cancel</p>
+                </div>
             </Form>
         </div>
     )

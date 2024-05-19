@@ -49,7 +49,6 @@ const Product = (props) => {
                     <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
                 </div>
             </>) : (<>
-                
                 <Link to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
                     <h1 className={styles.EntityBankLinkText}>{product_name}</h1>
                 </Link>
