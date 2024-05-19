@@ -10,6 +10,7 @@ p {
     border-radius: 3px;
     margin-top: 10px;
     height: 40px;
+    width: 80px;
 }
 .Button:hover {
     color: rgb(255, 255, 255);

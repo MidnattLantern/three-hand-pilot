@@ -44,7 +44,7 @@ const Product = (props) => {
                         <td>{serial_number_prefix}</td>
                     </tr>
                 </table>
-                <div className={styles.EditDeleteDiv}>
+                <div className={styles.EditDeleteContainer}>
                     <button className={styles.EditButton} onClick={handleEdit}>Edit <i className="fa-solid fa-pen-to-square"></i></button>
                     <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
                 </div>

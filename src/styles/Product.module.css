@@ -16,41 +16,42 @@ td {
     padding-right: 20px;
 }
 
-.EditDeleteDiv {
+.EditDeleteContainer {
     margin-top: 10px;
     display: flex;
-    text-align: center;
+    justify-content: center;
 }
 
 .EditButton {
-    border: 1px solid rgb(50, 50, 50);
+    border: 2px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     color: rgb(200, 200, 200);
     border-radius: 5px;
     text-align: center;
     padding: 5px;
-    width: 90px;
+    width: 100px;
+    margin: 10px;
 }
 
 .DeleteButton {
-    border: 1px solid rgb(50, 50, 50);
+    border: 2px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     color: rgb(200, 200, 200);
     border-radius: 5px;
     text-align: center;
     padding: 5px;
-    width: 90px;
-    margin-left: 20px;
+    width: 100px;
+    margin: 10px;
 }
 
 .EditButton:hover {
     color: rgb(255, 175, 100);
-    border: 1px solid rgb(255, 175, 100);
+    border: 2px solid rgb(255, 175, 100);
 }
 
 .DeleteButton:hover {
     color: rgb(255, 0, 0);
-    border: 1px solid rgb(255, 0, 0)
+    border: 2px solid rgb(255, 0, 0)
 }
 
 .ProductLinkText {
@@ -69,4 +70,9 @@ td {
 .ProductLinkLocation {
     text-align: right;
     margin-bottom: 10px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
 }

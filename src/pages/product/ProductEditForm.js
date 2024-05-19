@@ -99,7 +99,10 @@ const ProductEditForm = () => {
                     </table>
                 </Form.Group>
                 <br/>
-                <button className={styles.Button} type="submit">Save</button>
+                <div className={styles.SaveButtonContainer}>
+                    <button className={styles.Button} type="submit">Save</button>
+                    <p className={styles.Button} onClick={() => {history.goBack()}}>Cancel</p>
+                </div>
             </Form>
         </div>
     );
