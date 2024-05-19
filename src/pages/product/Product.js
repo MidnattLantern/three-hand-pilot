@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/Product.module.css"
+import styles from "../../styles/EntityBank.module.css"
 
 const Product = (props) => {
     const {
@@ -51,7 +51,7 @@ const Product = (props) => {
             </>) : (<>
                 
                 <Link to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
-                    <h1 className={styles.ProductLinkText}>{product_name}</h1>
+                    <h1 className={styles.EntityBankLinkText}>{product_name}</h1>
                 </Link>
                 
             </>)}

@@ -3,7 +3,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
-import styles from "../../styles/ProductCreateForm.module.css";
+import styles from "../../styles/EntityBankCRUDForm.module.css";
 
 const ProductCreateForm = () => {
     const [errors, setErrors] = useState({});
@@ -61,7 +61,10 @@ const ProductCreateForm = () => {
                     <p key={idx}>{message}</p>
                 ))}
                 <br/>
-                <button className={styles.Button} type="submit">Submit</button>
+                <div className={styles.SaveButtonContainer}>
+                    <button className={styles.Button} type="submit">Submit</button>
+                    <p className={styles.Button} onClick={history.goBack}>Cancel</p>
+                </div>
             </Form>
         </div>
     );

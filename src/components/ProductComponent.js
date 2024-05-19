@@ -4,7 +4,7 @@ import ProductList from "../pages/product/ProductList";
 import ProductDetail from "../pages/product/ProductDetail";
 import ProductEditForm from "../pages/product/ProductEditForm";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import styles from "../styles/ProductComponent.module.css";
+import styles from "../styles/EntityBankComponent.module.css";
 import { useCurrentAuthentication } from "../contexts/CurrentAuthenticationContext";
 
 const renderAction = (action) => {

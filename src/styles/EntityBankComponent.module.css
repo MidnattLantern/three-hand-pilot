@@ -45,7 +45,6 @@ h1 {
     padding: 10px;
     padding-bottom: 2px;
     height: 61vh;
-    /* scrollable div*/
     overflow-y: scroll;
     overflow-x: hidden;
 }

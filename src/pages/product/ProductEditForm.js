@@ -4,7 +4,7 @@ import { useHistory, uesParams, useParams } from "react-router-dom/cjs/react-rou
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import { Form } from "react-bootstrap";
 import axios from "axios";
-import styles from "../../styles/ProductEditForm.module.css";
+import styles from "../../styles/EntityBankCRUDForm.module.css";
 
 const ProductEditForm = () => {
     const [productData, setProductData] = useState({

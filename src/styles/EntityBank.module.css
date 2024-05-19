@@ -54,22 +54,16 @@ td {
     border: 2px solid rgb(255, 0, 0)
 }
 
-.ProductLinkText {
+.EntityBankLinkText {
     color: rgb(200, 200, 200);
     background-color: rgb(30, 30, 30);
     border: 2px solid rgb(50, 50, 50);
     border-radius: 3px;
     padding: 20px;
 }
-.ProductLinkText:hover {
+.EntityBankLinkText:hover {
     color: rgb(255, 175, 100);
     border: 2px solid rgb(255, 175, 100);
-}
-
-
-.ProductLinkLocation {
-    text-align: right;
-    margin-bottom: 10px;
 }
 
 table {
