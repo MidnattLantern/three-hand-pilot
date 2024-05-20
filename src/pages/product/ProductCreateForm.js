@@ -10,7 +10,9 @@ const ProductCreateForm = () => {
     const [productData, setProductData] = useState({
         product_name: "",
     });
-    const { product_name, } = productData;
+    const {
+        product_name,
+    } = productData;
     const history = useHistory();
     const currentAuthentication = useCurrentAuthentication();
 

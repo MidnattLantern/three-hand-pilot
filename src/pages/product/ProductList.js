@@ -31,7 +31,7 @@ const ProductList = () => {
             {productList.results.length ? (<>
                 <InfiniteScroll
                 children={productList.results.map((product) => (
-                    <Product key={product.product_id} {...product} setProductList={setProductList} />
+                    <Product key={product.product_id} {...product} setProductList={setProductList} ProductList/>
                 ))}
                 dataLength={productList.results.length}
                 loader={<h1>loading...</h1>}

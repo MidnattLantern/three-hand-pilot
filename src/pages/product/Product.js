@@ -10,7 +10,9 @@ const Product = (props) => {
         owner,
         product_name,
         serial_number_prefix,
+        ProductList,
         ProductDetail,
+        ProductOption,
     } = props;
 
     const currentAuthentication = useCurrentAuthentication();
@@ -49,11 +51,17 @@ const Product = (props) => {
                     <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
                 </div>
             </>) : (<>
+
+            </>)}
+            {is_owner && ProductList ? (<>
                 <Link to={`/product/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
                     <h1 className={styles.EntityBankLinkText}>{product_name}</h1>
                 </Link>
-                
-            </>)}
+            </>) : (null)}
+
+            {is_owner && ProductOption ? (<>
+                    <h1 className={styles.EntityBankLinkText}>{product_name}</h1>
+            </>) : (null)}
         </div>
     );
 };
