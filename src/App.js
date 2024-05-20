@@ -16,6 +16,8 @@ import PilotPostEditForm from "./pages/pilotpost/PilotPostEditForm";
 
 import AddressComponent from "./components/AddressComponent";
 import ProductComponent from "./components/ProductComponent";
+import SerialNumberComponent from "./components/SerialNumberComponent";
+
 
 function App() {
 
@@ -35,6 +37,7 @@ function App() {
 
             <Route exact path="/address/:user_id/:action/:address_id" render={() => <AddressComponent />} />
             <Route exact path="/product/:user_id/:action/:product_id" render={() => <ProductComponent />} />
+            <Route exact path="/serial_number/:user_id/:action/:serial_number_id" render={() => <SerialNumberComponent />} />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />
