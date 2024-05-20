@@ -12,10 +12,14 @@ const SerialNumberCreateForm = () => {
     // Gather option data for select fields, holdOption will be a string:
     const { user_id } = useParams();
     const [productOptionList, setProductOptionList] = useState({ results: [] });
-    const [holdProductOption, setHoldProductOption] = useState(null);
+    const [holdProductOptionID, setHoldProductOptionID] = useState(null);
+    const [displayHoldProductOption, setDisplayHoldProductOption] = useState("");
     const [collapsedProductList, setCollapsedProductList] = useState(false);
+
     const [partneringEndOptionList, setPartneringEndOptionList] = useState({ results: [] });
-    const [holdPartneringEndOptionList, setHoldPartneringEndOptionList] = useState("")
+    const [holdPartneringEndOptionID, setHoldPartneringEndOptionID] = useState(null);
+    const [displayHoldPartneringEndOption, setDisplayHoldPartneringEndOption] = useState("");
+    const [collapsedPartneringEndList, setCollapsedPartneringEndList] = useState(false);
 
     useEffect(() => {
         const fetchProductList = async () => {
@@ -32,8 +36,8 @@ const SerialNumberCreateForm = () => {
     // Familiar code follows:
     const [errors, setErrors] = useState({});
     const [serialNumberData, setSerialNumberData] = useState({
-        link_product_name: "",
-        link_partnering_end: "",
+        link_product_name: null,
+        link_partnering_end: null,
         serial_number: "",
     });
     const {
@@ -75,17 +79,31 @@ const SerialNumberCreateForm = () => {
                 <Form.Group>
                     <table>
                         <tr>
-                            <td>Product</td>
+                            <td>Product:</td>
                             <td>
                                 <Form.Control
                                 className={styles.FormControl}
-                                value={holdProductOption}
+                                value={displayHoldProductOption}
                                 placeholder="Select product"
                                 onClick={() => {setCollapsedProductList(true)}}
                                 readOnly
                                 />
                             </td>
                         </tr>
+                        {holdProductOptionID !== null ? (<>
+                            <tr>
+                                <td>Serial number:</td>
+                                <td>
+                                    <Form.Control
+                                    className={styles.FormControl}
+                                    name="serial_number"
+                                    value={serial_number}
+                                    placeholder="(No prefix)"
+                                    onChange={handleChange}
+                                    />
+                                </td>
+                            </tr>
+                        </>) : (null)}
                     </table>
 
                         {collapsedProductList ? (<>
@@ -93,7 +111,10 @@ const SerialNumberCreateForm = () => {
                                 {productOptionList.results.length ? (<div onClick={() => {setCollapsedProductList(false)}}>
                                     <InfiniteScroll
                                     children={productOptionList.results.map((product) => (
-                                        <div onClick={() => {setHoldProductOption(product.product_name)}}>
+                                        <div onClick={() => {
+                                            setHoldProductOptionID(product.id);
+                                            setDisplayHoldProductOption(product.product_name);
+                                            }}>
                                             <Product key={product.product_id} {...product} setProductOptionList={setProductOptionList} ProductOption/>
                                         </div>
                                     ))}
@@ -113,6 +134,12 @@ const SerialNumberCreateForm = () => {
                 ))}
                 <br/>
             </Form>
+
+            <ul>
+                <li><p>link_product_name: {link_product_name}</p></li>
+                <li><p>link_partnering_end: {link_partnering_end}</p></li>
+                <li><p>serial_number: {serial_number}</p></li>
+            </ul>
         </div>
     );
 };
