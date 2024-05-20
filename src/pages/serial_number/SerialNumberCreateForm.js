@@ -9,12 +9,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 const SerialNumberCreateForm = () => {
-    // Gather option data for select fields:
+    // Gather option data for select fields, holdOption will be a string:
     const { user_id } = useParams();
     const [productOptionList, setProductOptionList] = useState({ results: [] });
     const [holdProductOption, setHoldProductOption] = useState(null);
+    const [collapsedProductList, setCollapsedProductList] = useState(false);
     const [partneringEndOptionList, setPartneringEndOptionList] = useState({ results: [] });
-    const [holdPartneringEndOptionList, setHoldPartneringEndOptionList] = useState(null)
+    const [holdPartneringEndOptionList, setHoldPartneringEndOptionList] = useState("")
 
     useEffect(() => {
         const fetchProductList = async () => {
@@ -70,7 +71,6 @@ const SerialNumberCreateForm = () => {
     return (
         <div>
             <h1>Create new serial number</h1>
-            <p>found {productOptionList.results.length} items</p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <table>
@@ -79,31 +79,34 @@ const SerialNumberCreateForm = () => {
                             <td>
                                 <Form.Control
                                 className={styles.FormControl}
-                                type="text"
-                                name="link_product_name"
-                                value={link_product_name}
-                                onChange={handleChange}
-                                placeholder="Type here"
+                                value={holdProductOption}
+                                placeholder="Select product"
+                                onClick={() => {setCollapsedProductList(true)}}
+                                readOnly
                                 />
                             </td>
                         </tr>
-                        <tr>
-                            <td>Product</td>
-                            <td>
-                                {productOptionList.results.length ? (<>
+                    </table>
+
+                        {collapsedProductList ? (<>
+                            <p>found {productOptionList.results.length} items</p>
+                                {productOptionList.results.length ? (<div onClick={() => {setCollapsedProductList(false)}}>
                                     <InfiniteScroll
                                     children={productOptionList.results.map((product) => (
-                                        <Product key={product.product_id} {...product} setProductOptionList={setProductOptionList} ProductOption/>
+                                        <div onClick={() => {setHoldProductOption(product.product_name)}}>
+                                            <Product key={product.product_id} {...product} setProductOptionList={setProductOptionList} ProductOption/>
+                                        </div>
                                     ))}
                                     dataLength={productOptionList.results.length}
                                     loader={<p>loading...</p>}
                                     hasMore={!!productOptionList.next}
                                     next={() => fetchMoreData(productOptionList, setProductOptionList)}
                                     />
-                                </>) : (null)}
-                            </td>
-                        </tr>
-                    </table>
+                                </div>) : (null)}
+                        </>) :(null)}
+
+
+                    
                 </Form.Group>
                 {errors?.product_name?.map((message, idx) => (
                     <p key={idx}>{message}</p>
