@@ -16,10 +16,10 @@ const SerialNumberCreateForm = () => {
     const [displayHoldProductOption, setDisplayHoldProductOption] = useState("");
     const [collapsedProductList, setCollapsedProductList] = useState(false);
 
-    const [partneringEndOptionList, setPartneringEndOptionList] = useState({ results: [] });
-    const [holdPartneringEndOptionID, setHoldPartneringEndOptionID] = useState(null);
-    const [displayHoldPartneringEndOption, setDisplayHoldPartneringEndOption] = useState("");
-    const [collapsedPartneringEndList, setCollapsedPartneringEndList] = useState(false);
+//    const [partneringEndOptionList, setPartneringEndOptionList] = useState({ results: [] });
+//    const [holdPartneringEndOptionID, setHoldPartneringEndOptionID] = useState(null);
+//    const [displayHoldPartneringEndOption, setDisplayHoldPartneringEndOption] = useState("");
+//    const [collapsedPartneringEndList, setCollapsedPartneringEndList] = useState(false);
 
     useEffect(() => {
         const fetchProductList = async () => {
@@ -31,18 +31,14 @@ const SerialNumberCreateForm = () => {
             };
         };
         fetchProductList();
-    }, []);
+    }, [user_id]);
 
     // Familiar code follows:
     const [errors, setErrors] = useState({});
     const [serialNumberData, setSerialNumberData] = useState({
-        link_product_name: null,
-        link_partnering_end: null,
         serial_number: "",
     });
     const {
-        link_product_name,
-        link_partnering_end,
         serial_number,
     } = serialNumberData;
     const history = useHistory();
@@ -58,8 +54,8 @@ const SerialNumberCreateForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         const formData = new FormData();
-        formData.append("link_product_name", link_product_name);
-        formData.append("link_partnering_end", link_partnering_end);
+        formData.append("link_product_name", holdProductOptionID);
+//        formData.append("link_partnering_end", link_partnering_end);
         formData.append("serial_number", serial_number);
         try {
             await axiosReq.post("/serial_number/", formData);
@@ -125,21 +121,17 @@ const SerialNumberCreateForm = () => {
                                     />
                                 </div>) : (null)}
                         </>) :(null)}
-
-
-                    
                 </Form.Group>
                 {errors?.product_name?.map((message, idx) => (
                     <p key={idx}>{message}</p>
                 ))}
+                <div className={styles.SaveButtonContainer}>
+                    <button className={styles.Button} type="submit">Submit</button>
+                    <p className={styles.Button} onClick={history.goBack}>Cancel</p>
+                </div>
                 <br/>
             </Form>
 
-            <ul>
-                <li><p>link_product_name: {link_product_name}</p></li>
-                <li><p>link_partnering_end: {link_partnering_end}</p></li>
-                <li><p>serial_number: {serial_number}</p></li>
-            </ul>
         </div>
     );
 };
