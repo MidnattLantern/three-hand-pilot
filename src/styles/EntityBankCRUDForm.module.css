@@ -1,3 +1,7 @@
+.Test {
+    border: 1px solid rgb(255, 0, 0);
+}
+
 p {
     margin: 0px;
 }
@@ -61,4 +65,30 @@ td {
     margin-top: 10px;
     display: flex;
     justify-content: center;
+}
+
+.DropDownButton {
+    border: 1px none rgb(50, 50, 50);
+    background-color: rgb(30, 30, 30);
+    color: rgb(200, 200, 200);
+    min-width: 100%;
+    text-align: left;
+    padding: 5px;
+    padding-left: 15px;
+}
+.DropDownButton:hover {
+    color: rgb(255, 175, 100);
+}
+
+.DropDownContainer {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(30, 30, 30);
+}
+
+.DrowndownItem {
+    color: rgb(200, 200, 200);
+}
+.DrowndownItem:hover {
+    background-color: rgb(30, 30, 30);
+    color: rgb(255, 175, 100);
 }

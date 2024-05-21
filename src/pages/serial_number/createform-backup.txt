@@ -3,31 +3,17 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import styles from "../../styles/EntityBankCRUDForm.module.css";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { Dropdown, Form } from "react-bootstrap";
-//import Product from "../product/Product";
+import { Form } from "react-bootstrap";
+import Product from "../product/Product";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 const SerialNumberCreateForm = () => {
-    const ThreeDots = React.forwardRef(({ onClick }, ref) => (
-        <div
-            className={styles.FormControl}
-            ref={ref}
-            onClick={(e) => {
-                e.preventDefault();
-                onClick(e);
-            }}
-        >
-            <button className={styles.DropDownButton}>
-                <i class="fa-solid fa-caret-down"></i> {displayHoldProductOption}
-            </button>
-        </div>
-      ));
-
     const { user_id } = useParams();
     const [productOptionList, setProductOptionList] = useState({ results: [] });
     const [holdProductOptionID, setHoldProductOptionID] = useState(null);
-    const [displayHoldProductOption, setDisplayHoldProductOption] = useState("----------");
+    const [displayHoldProductOption, setDisplayHoldProductOption] = useState("");
+    const [collapsedProductList, setCollapsedProductList] = useState(false);
     const [serialNumber, setSerialNumber] = useState("");
 
     useEffect(() => {
@@ -75,34 +61,16 @@ const SerialNumberCreateForm = () => {
                         <tr>
                             <td>Product:</td>
                             <td>
-                                <Dropdown className="ml-auto" drop="down">
-                                    <Dropdown.Toggle as={ThreeDots} />
-                                    <Dropdown.Menu
-                                        className={styles.DropDownContainer}
-                                        popperConfig={{ strategy: "fixed" }}
-                                    >
-                                    <InfiniteScroll
-                                    children={productOptionList.results.map((product) => (
-                                        <div onClick={() => {
-                                            setHoldProductOptionID(product.id);
-                                            setDisplayHoldProductOption(product.product_name);
-                                            setSerialNumber(product.serial_number_prefix);
-                                            }}>
-                                                <Dropdown.Item className={styles.DrowndownItem}>
-                                                    {product.product_name}
-                                                </Dropdown.Item>
-                                        </div>
-                                    ))}
-                                    dataLength={productOptionList.results.length}
-                                    loader={<p>loading...</p>}
-                                    hasMore={!!productOptionList.next}
-                                    next={() => fetchMoreData(productOptionList, setProductOptionList)}
-                                    />
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                                <Form.Control
+                                className={styles.FormControl}
+                                value={displayHoldProductOption}
+                                placeholder="Select product"
+                                onClick={() => {setCollapsedProductList(true)}}
+                                readOnly
+                                />
                             </td>
                         </tr>
-
+                        {holdProductOptionID !== null ? (<>
                             <tr>
                                 <td>Serial number:</td>
                                 <td>
@@ -115,16 +83,36 @@ const SerialNumberCreateForm = () => {
                                     />
                                 </td>
                             </tr>
-
+                        </>):(null)}
                     </table>
 
+                        {collapsedProductList ? (<>
+                            <p>found {productOptionList.results.length} items</p>
+                                {productOptionList.results.length ? (<div onClick={() => {setCollapsedProductList(false)}}>
+                                    <InfiniteScroll
+                                    children={productOptionList.results.map((product) => (
+                                        <div onClick={() => {
+                                            setHoldProductOptionID(product.id);
+                                            setDisplayHoldProductOption(product.product_name);
+                                            setSerialNumber(product.serial_number_prefix);
+                                            }}>
+                                            <Product key={product.product_id} {...product} setProductOptionList={setProductOptionList} ProductOption/>
+                                        </div>
+                                    ))}
+                                    dataLength={productOptionList.results.length}
+                                    loader={<p>loading...</p>}
+                                    hasMore={!!productOptionList.next}
+                                    next={() => fetchMoreData(productOptionList, setProductOptionList)}
+                                    />
+                                </div>):(null)}
+                        </>):(null)}
                 </Form.Group>
                 {errors?.product_name?.map((message, idx) => (
                     <p key={idx}>{message}</p>
                 ))}
                 <div className={styles.SaveButtonContainer}>
                     {serialNumber !== "" && holdProductOptionID  ? (<>
-                        <button className={styles.Button} type="submit">Create</button>
+                        <button className={styles.Button} type="submit">Submit</button>
                         <p className={styles.Button} onClick={history.goBack}>Cancel</p>
                     </>) : (<>
                         <div className={styles.ButtonDisabled}></div>
