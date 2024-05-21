@@ -22,7 +22,6 @@ const ProductList = () => {
             };
         };
         fetchProductList();
-        console.log(user_id);
     }, [user_id]);
     
     return(
