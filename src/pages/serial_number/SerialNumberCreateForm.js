@@ -9,17 +9,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 const SerialNumberCreateForm = () => {
-    // Gather option data for select fields, holdOption will be a string:
     const { user_id } = useParams();
     const [productOptionList, setProductOptionList] = useState({ results: [] });
     const [holdProductOptionID, setHoldProductOptionID] = useState(null);
     const [displayHoldProductOption, setDisplayHoldProductOption] = useState("");
     const [collapsedProductList, setCollapsedProductList] = useState(false);
-
-//    const [partneringEndOptionList, setPartneringEndOptionList] = useState({ results: [] });
-//    const [holdPartneringEndOptionID, setHoldPartneringEndOptionID] = useState(null);
-//    const [displayHoldPartneringEndOption, setDisplayHoldPartneringEndOption] = useState("");
-//    const [collapsedPartneringEndList, setCollapsedPartneringEndList] = useState(false);
+    const [serialNumber, setSerialNumber] = useState("");
 
     useEffect(() => {
         const fetchProductList = async () => {
@@ -33,30 +28,19 @@ const SerialNumberCreateForm = () => {
         fetchProductList();
     }, [user_id]);
 
-    // Familiar code follows:
     const [errors, setErrors] = useState({});
-    const [serialNumberData, setSerialNumberData] = useState({
-        serial_number: "",
-    });
-    const {
-        serial_number,
-    } = serialNumberData;
     const history = useHistory();
     const currentAuthentication = useCurrentAuthentication();
 
-    const handleChange = (event) => {
-        setSerialNumberData({
-            ...serialNumberData,
-            [event.target.name]: event.target.value,
-        });
-    };
+    const handleSetSerialNumber = (event) => {
+        setSerialNumber(event.target.value);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         const formData = new FormData();
         formData.append("link_product_name", holdProductOptionID);
-//        formData.append("link_partnering_end", link_partnering_end);
-        formData.append("serial_number", serial_number);
+        formData.append("serial_number", serialNumber);
         try {
             await axiosReq.post("/serial_number/", formData);
             history.push(`/serial_number/${currentAuthentication?.user_authentication_id}/_/_`);
@@ -92,10 +76,10 @@ const SerialNumberCreateForm = () => {
                                 <td>
                                     <Form.Control
                                     className={styles.FormControl}
-                                    name="serial_number"
-                                    value={serial_number}
+                                    name="serialNumber"
+                                    value={serialNumber}
                                     placeholder="(No prefix)"
-                                    onChange={handleChange}
+                                    onChange={handleSetSerialNumber}
                                     />
                                 </td>
                             </tr>
@@ -110,6 +94,7 @@ const SerialNumberCreateForm = () => {
                                         <div onClick={() => {
                                             setHoldProductOptionID(product.id);
                                             setDisplayHoldProductOption(product.product_name);
+                                            setSerialNumber(product.serial_number_prefix);
                                             }}>
                                             <Product key={product.product_id} {...product} setProductOptionList={setProductOptionList} ProductOption/>
                                         </div>
@@ -126,12 +111,16 @@ const SerialNumberCreateForm = () => {
                     <p key={idx}>{message}</p>
                 ))}
                 <div className={styles.SaveButtonContainer}>
-                    <button className={styles.Button} type="submit">Submit</button>
-                    <p className={styles.Button} onClick={history.goBack}>Cancel</p>
+                    {serialNumber !== "" && holdProductOptionID  ? (<>
+                        <button className={styles.Button} type="submit">Submit</button>
+                        <p className={styles.Button} onClick={history.goBack}>Cancel</p>
+                    </>) : (<>
+                        <div className={styles.ButtonDisabled}></div>
+                        <p className={styles.Button} onClick={history.goBack}>Cancel</p>
+                    </>)}
                 </div>
                 <br/>
             </Form>
-
         </div>
     );
 };

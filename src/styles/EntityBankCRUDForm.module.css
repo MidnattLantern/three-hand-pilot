@@ -13,7 +13,7 @@ td {
     font-family: Jost, sans-serif;
 }
 
-.Button {
+.Button, .ButtonDisabled {
     border: 2px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     color: rgb(200, 200, 200);
@@ -28,6 +28,7 @@ td {
     color: rgb(255, 175, 100);
     border: 2px solid rgb(255, 175, 100);
 }
+.ButtonDisabled
 
 .Anchor {
     text-decoration: underline;
