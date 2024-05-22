@@ -26,10 +26,10 @@ const Product = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/product/${id}`);
-            history.push(`/product/${currentAuthentication?.user_authentication_id}/_/_`)
+            history.push(`/product/${currentAuthentication?.user_authentication_id}/_/_`);
         } catch(err) {
             console.log(err);
-        }
+        };
     };
 
     return (

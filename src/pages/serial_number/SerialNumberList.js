@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import SerialNumber from "./SerialNumber";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { fetchMoreData } from "../../utils/utils";
 
 const SerialNumberList = () => {
     const { user_id } = useParams();
@@ -23,7 +25,19 @@ const SerialNumberList = () => {
 
     return (
         <div>
-            <h1>SerialNumberList view</h1>
+            {hasLoaded ? (<>
+            {serialNumberList.results.length ? (<>
+               <InfiniteScroll
+            children={serialNumberList.results.map((serialNumber) => (
+                <SerialNumber key={serialNumber.serial_number_id} {...serialNumber} setSerialNumberList={setSerialNumberList} serialNumberList/>
+            ))}
+            dataLength={serialNumberList.results.length}
+            loader={<h1>loading...</h1>}
+            hasMore={!!serialNumberList.next}
+            next={() => fetchMoreData(serialNumberList, setSerialNumberList)}
+            />
+            </>) : (null)}
+            </>) : (<h1>loading...</h1>)}
         </div>
     );
 };
