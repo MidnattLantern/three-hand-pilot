@@ -44,7 +44,7 @@ const SerialNumberEditForm = () => {
     const [holdProductOptionID, setHoldProductOptionID] = useState(null);
     const [displayHoldProductOption, setDisplayHoldProductOption] = useState("----------");
     const [partneringEndOptionList, setPartneringEndOptionList] = useState({ results: [] });
-    const [holdPartneringEndOptionID, setholdPartneringEndOptionID] = useState(null);
+    const [holdPartneringEndOptionID, setholdPartneringEndOptionID] = useState("");
     const [displayHoldPartneringEndOption, setDisplayHoldPartneringEndOption] = useState("----------");
     const [serialNumber, setSerialNumber] = useState("");
 
@@ -80,7 +80,7 @@ const SerialNumberEditForm = () => {
         formData.append("link_partnering_end", holdPartneringEndOptionID)
         formData.append("serial_number", serialNumber);
         try {
-            await axiosReq.put("/serial_number/", formData);
+            await axiosReq.put(`/serial_number/${user_id}`, formData);
             history.push(`/serial_number/${currentAuthentication?.user_authentication_id}/_/_`);
         } catch(err) {
             console.log(err)
