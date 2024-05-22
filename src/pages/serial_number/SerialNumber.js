@@ -1,7 +1,8 @@
 import React from "react";
 import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/EntityBank.module.css"
 
 const SerialNumber = (props) => {
     const {
@@ -33,7 +34,32 @@ const SerialNumber = (props) => {
 
     return (<>
         {is_owner ? (<div>
-            <h1>{serial_number}</h1>
+            {SerialNumberDetail ? (<>
+                <h1>{serial_number}</h1>
+                <table>
+                    <tr>
+                        <td>Serial number:</td>
+                        <td>{serial_number}</td>
+                    </tr>
+                    <tr>
+                        <td>Product:</td>
+                        <td>{link_product_name}</td>
+                    </tr>
+                    <tr>
+                        <td>Renting partner:</td>
+                        <td>{link_partnering_end}</td>
+                    </tr>
+                </table>
+                <div className={styles.EditDeleteContainer}>
+                    <button className={styles.EditButton} onClick={handleEdit}>Edit <i className="fa-solid fa-pen-to-square"></i></button>
+                    <button className={styles.DeleteButton} onClick={handleDelete}>Delete <i className="fa-solid fa-xmark"></i></button>
+                </div>
+            </>) : (null)}
+            {SerialNumberList ? (<>
+                <Link to={`/serial_number/${currentAuthentication?.user_authentication_id}/detail/${id}`}>
+                    <h1 className={styles.EntityBankLinkText}>{serial_number}</h1>
+                </Link>
+            </>) : (null)}
             
         </div>) : (null)}
         </>);

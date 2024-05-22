@@ -29,7 +29,7 @@ const SerialNumberList = () => {
             {serialNumberList.results.length ? (<>
                <InfiniteScroll
             children={serialNumberList.results.map((serialNumber) => (
-                <SerialNumber key={serialNumber.serial_number_id} {...serialNumber} setSerialNumberList={setSerialNumberList} serialNumberList/>
+                <SerialNumber key={serialNumber.serial_number_id} {...serialNumber} setSerialNumberList={setSerialNumberList} SerialNumberList/>
             ))}
             dataLength={serialNumberList.results.length}
             loader={<h1>loading...</h1>}
