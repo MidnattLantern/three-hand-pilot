@@ -9,13 +9,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 const SerialNumberCreateForm = () => {
-    const ThreeDots = React.forwardRef(({ onClick }, ref) => (
+    const DropdownButton = React.forwardRef(({ onClick }, ref) => (
         <div
             className={styles.FormControl}
             ref={ref}
-            onClick={(e) => {
-                e.preventDefault();
-                onClick(e);
+            onClick={(event) => {
+                event.preventDefault();
+                onClick(event);
             }}
         >
             <button className={styles.DropDownButton}>
@@ -76,7 +76,7 @@ const SerialNumberCreateForm = () => {
                             <td>Product:</td>
                             <td>
                                 <Dropdown className="ml-auto" drop="down">
-                                    <Dropdown.Toggle as={ThreeDots} />
+                                    <Dropdown.Toggle as={DropdownButton} />
                                     <Dropdown.Menu
                                         className={styles.DropDownContainer}
                                         popperConfig={{ strategy: "fixed" }}

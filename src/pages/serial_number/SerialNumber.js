@@ -8,13 +8,14 @@ const SerialNumber = (props) => {
     const {
         id,
         owner,
-        link_product_name,
-        link_partnering_end,
+//        link_product_name,
+//        link_partnering_end,
         serial_number,
         SerialNumberList,
         SerialNumberDetail,
+        display_link_product_name,
+        display_link_partnering_end,
     } = props;
-
     const currentAuthentication = useCurrentAuthentication();
     const is_owner = currentAuthentication?.username === owner;
     const history = useHistory();
@@ -43,11 +44,11 @@ const SerialNumber = (props) => {
                     </tr>
                     <tr>
                         <td>Product:</td>
-                        <td>{link_product_name}</td>
+                        <td>{display_link_product_name}</td>
                     </tr>
                     <tr>
                         <td>Renting partner:</td>
-                        <td>{link_partnering_end}</td>
+                        <td>{display_link_partnering_end}</td>
                     </tr>
                 </table>
                 <div className={styles.EditDeleteContainer}>

@@ -11,8 +11,10 @@ const SerialNumberDetail = () => {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: serialNumberData }] = await Promise.all([
-                    axiosReq.get(`/serial_number/${serial_number_id}`)
+                const [
+                    { data: serialNumberData },
+                ] = await Promise.all([
+                    axiosReq.get(`/serial_number/${serial_number_id}`),
                 ]);
                 setSerialNumberDetail({ results: [serialNumberData] });
             } catch(err) {
@@ -24,7 +26,10 @@ const SerialNumberDetail = () => {
 
     return (
         <div>
-            <SerialNumber {...serialNumberDetail.results[0]} setSerialNumberDetail={setSerialNumberDetail} SerialNumberDetail/>
+            <SerialNumber
+            {...serialNumberDetail.results[0]}
+            setSerialNumberDetail={setSerialNumberDetail}
+            SerialNumberDetail/>
         </div>
     );
 };
